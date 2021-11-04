@@ -14,7 +14,7 @@ public class HelloUniverse {
         venus.diametre = 12100;
         venus.matiere = "Tellurique";
 
-        PlaneteTellurique terre = new PlaneteTellurique("Terre",0);
+        PlaneteTellurique terre = new PlaneteTellurique("Terre",4);
         terre.diametre = 12756;
         terre.matiere = "Tellurique";
 
@@ -87,6 +87,13 @@ public class HelloUniverse {
             i++;
         }
 
+        Vaisseau v1 = new VaisseauCivil("VAISSEAU_MONDE");
+        Vaisseau v2 = new VaisseauCivil("CARGO");
+        Vaisseau v3 = new VaisseauGuerre("CHASSEUR");
+        Vaisseau v4 = new VaisseauGuerre("FREGATE");
+        Vaisseau v5 = new VaisseauGuerre("CROISEUR");
+
+        terre.acceuillirVaisseau(v1,v2,v3,v4,v5);
 
 
     }
