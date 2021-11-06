@@ -1,8 +1,13 @@
-public class PlaneteTellurique extends Planete {
-    int totalVisiteur;
-    Vaisseau[][] vaisseauAccoste;
+package com.espacex.decouverte.objectsastro;
+import com.espacex.decouverte.enginsspaciaux.Vaisseau;
+import com.espacex.decouverte.enginsspaciaux.VaisseauCivil;
+import com.espacex.decouverte.enginsspaciaux.VaisseauGuerre;
 
-    PlaneteTellurique(String nomPlanete,int nbPlaceBaie) {
+public class PlaneteTellurique extends Planete {
+    public int totalVisiteur;
+    public Vaisseau[][] vaisseauAccoste;
+
+    public PlaneteTellurique(String nomPlanete, int nbPlaceBaie) {
         super(nomPlanete);
         this.vaisseauAccoste= new Vaisseau[2][nbPlaceBaie];
     }
@@ -29,7 +34,7 @@ public class PlaneteTellurique extends Planete {
         return false;
     }
 
-    void acceuillirVaisseau(Vaisseau... vaisseau){
+    public void acceuillirVaisseau(Vaisseau... vaisseau){
         for (Vaisseau vs : vaisseau){
             if(vs instanceof VaisseauGuerre){
                 ((VaisseauGuerre) vs).desactiverArmes();

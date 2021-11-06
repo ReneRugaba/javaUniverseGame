@@ -1,3 +1,5 @@
+package com.espacex.decouverte.enginsspaciaux;
+
 public enum TypeVaisseau {
     FREGATE("FREGATE"),
     CARGO("CARGO"),
@@ -5,7 +7,7 @@ public enum TypeVaisseau {
     CROISEUR("CROISEUR"),
     VAISSEAU_MONDE("VAISSEAU_MONDE");
 
-    String typeVaisseau;
+    public String typeVaisseau;
 
     TypeVaisseau(String typeVaisseau){
         this.typeVaisseau=typeVaisseau;
