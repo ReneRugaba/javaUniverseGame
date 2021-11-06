@@ -42,14 +42,14 @@ public class VaisseauGuerre extends Vaisseau{
     }
 
     @Override
-    public void emporterCargaison(int tonnage) {
+    public void emporterCargaison(int tonnage) throws CheckedException {
+        this.tonnageActuel=tonnage;
         if(typeVaisseau != CHASSEUR && this.nbPassager>=12 ){
-            int tonnageRefuse=0;
             if(tonnage>this.tonnageMax){
                 tonnageRefuse = typeVaisseau == FREGATE ? tonnage-50 : tonnage-100;
-                System.out.println("Letonnage refusé est de "+tonnageRefuse);
+                throw new CheckedException(tonnageRefuse);
             }else{
-                System.out.println("Letonnage refusé est de "+tonnageRefuse);
+                System.out.println("La cargaison est acceptée!");
             }
         }else {
             System.out.println("Letonnage refusé est de "+tonnage);

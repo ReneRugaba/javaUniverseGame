@@ -1,14 +1,13 @@
 package com.espacex.decouverte;
 
-import com.espacex.decouverte.enginsspaciaux.TypeVaisseau;
+import com.espacex.decouverte.enginsspaciaux.*;
+
 import static com.espacex.decouverte.enginsspaciaux.TypeVaisseau.VAISSEAU_MONDE;
 import static com.espacex.decouverte.enginsspaciaux.TypeVaisseau.CHASSEUR;
 import static com.espacex.decouverte.enginsspaciaux.TypeVaisseau.FREGATE;
 import static com.espacex.decouverte.enginsspaciaux.TypeVaisseau.CROISEUR;
 import static com.espacex.decouverte.enginsspaciaux.TypeVaisseau.CARGO;
-import com.espacex.decouverte.enginsspaciaux.Vaisseau;
-import com.espacex.decouverte.enginsspaciaux.VaisseauCivil;
-import com.espacex.decouverte.enginsspaciaux.VaisseauGuerre;
+
 import com.espacex.decouverte.objectsastro.Planete;
 import com.espacex.decouverte.objectsastro.PlaneteGazeuse;
 import com.espacex.decouverte.objectsastro.PlaneteTellurique;
@@ -120,7 +119,26 @@ public class HelloUniverse {
                         choixPl = planeteTellurique;
                         choixPl.acceuillirVaisseau(choix);
                         System.out.println("Choix tonnage ?");
-                        choix.emporterCargaison(sc.nextInt());
+                        try {
+                            choix.emporterCargaison(sc.nextInt());
+                        } catch (CheckedException e) {
+                            System.out.println(e.getMessage());
+                            System.out.println("Souhaitez vous annuler? (oui/non)");
+                            sc.nextLine();
+                            String reponse=sc.nextLine();
+                            if(reponse.equals("oui")){
+                                    int newTonnage=choix.tonnageActuel-choix.tonnageRefuse;
+                                System.out.println(newTonnage);
+                                try {
+                                    choix.emporterCargaison(newTonnage);
+                                } catch (CheckedException ex) {
+                                    ex.printStackTrace();
+                                }
+
+                            }else {
+                                System.out.println("opération annulé!");
+                            }
+                        }
                     }
                 }
             }

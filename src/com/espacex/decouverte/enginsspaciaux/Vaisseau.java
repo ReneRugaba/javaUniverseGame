@@ -6,7 +6,8 @@ public abstract class Vaisseau {
     //public int blindage;
     public int resistanceBouclier;
     public int tonnageMax;
-    protected int tonnageActuel;
+    public int tonnageActuel;
+    public int tonnageRefuse;
 
     Vaisseau(TypeVaisseau typeVaisseau){
         this.typeVaisseau=typeVaisseau;
@@ -14,5 +15,5 @@ public abstract class Vaisseau {
 
 
 
-    abstract public void emporterCargaison(int tonnage);
+    abstract public void emporterCargaison(int tonnage) throws CheckedException;
 }
