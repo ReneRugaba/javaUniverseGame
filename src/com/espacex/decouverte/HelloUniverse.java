@@ -100,6 +100,7 @@ public class HelloUniverse {
         listVaisseau.add(fregate);
         listVaisseau.add(chasseur);
         listVaisseau.add(croiseur);
+
         Set<PlaneteTellurique> planeteArrayList = new HashSet<>(){{
             add(mercure);
             add(terre);
@@ -117,10 +118,9 @@ public class HelloUniverse {
                 for (PlaneteTellurique planeteTellurique : planeteArrayList) {
                     if (planeteTellurique.nom.equals(planete)) {
                         choixPl = planeteTellurique;
-                        System.out.println("Choix tonnage ?");
-                        choix.tonnageActuel = sc.nextInt();
                         choixPl.acceuillirVaisseau(choix);
-                        choix.emporterCargaison(choix.tonnageActuel);
+                        System.out.println("Choix tonnage ?");
+                        choix.emporterCargaison(sc.nextInt());
                     }
                 }
             }

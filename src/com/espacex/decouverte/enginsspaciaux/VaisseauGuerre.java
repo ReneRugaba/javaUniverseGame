@@ -3,7 +3,7 @@ import static com.espacex.decouverte.enginsspaciaux.TypeVaisseau.FREGATE;
 import static com.espacex.decouverte.enginsspaciaux.TypeVaisseau.CHASSEUR;
 
 public class VaisseauGuerre extends Vaisseau{
-    boolean armesDesactivees=true;
+    private boolean armesDesactivees=true;
 
     public VaisseauGuerre(TypeVaisseau typeVaisseau) {
         super(typeVaisseau);
@@ -13,7 +13,8 @@ public class VaisseauGuerre extends Vaisseau{
         }
     }
 
-    /**public void attaque(Vaisseau vaisseau,String arme,int dureeAttaqque){
+    /*
+        public void attaque(Vaisseau vaisseau,String arme,int dureeAttaqque){
         if(this.armesDesactivees) {
             System.out.println("Un vaisseau de type " + this.typeVaisseau + " attaque un vaisseau de type "
                     + vaisseau.typeVaisseau + " en utilisant " + arme + " pendant " + dureeAttaqque + " minute");
@@ -21,11 +22,18 @@ public class VaisseauGuerre extends Vaisseau{
         }else {
             System.out.println("Aucune attaque ne peut être faite, armes inopérant.");
         }
-    }*/
+        }
+    */
+
 
     public void desactiverArmes(){
         this.armesDesactivees = false;
         System.out.println("Désactivation des armes du vaisseau de type "+this.typeVaisseau);
+    }
+
+    public void activerArmes(){
+        this.armesDesactivees = true;
+        System.out.println("Activation des armes du vaisseau de type "+this.typeVaisseau);
     }
 
     public void activebouclier(){
